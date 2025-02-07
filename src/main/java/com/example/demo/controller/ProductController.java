@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")  // Permitir solicitudes de localhost:3000 (tu frontend)
 @RequestMapping("/api/products")
 public class ProductController {
 
