@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -21,6 +22,7 @@ const App = () => {
     <div>
 
       <Navbar />
+      <Home />
 
 {/*       <h1>Lista de Productos</h1>
       <ul>
