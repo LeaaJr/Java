@@ -1,0 +1,101 @@
+/* Navbar.module.css */
+.menu {
+   width: var(--menu-width);
+   display: flex;
+   justify-content: space-evenly;
+   position: relative;
+   z-index: 2;
+   margin: 0 auto;
+   top: 3em;
+}
+
+.menuItem {
+   color: white;
+   font-weight: 600;
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   padding: 1em 1.5em;
+   text-align: center;
+   position: relative;
+}
+
+.menuText a {
+   color: white;
+   text-decoration: none;
+   transition: color 0.1s ease-out;
+}
+
+.menuText a:hover {
+   color: rgba(255, 255, 255, 0.5);
+}
+
+.subMenu {
+   position: absolute;
+   top: 7em;
+   background: white;
+   border-radius: 10px;
+   padding: 1.5em;
+   opacity: 0;
+   transition: opacity 0.25s ease-out;
+}
+
+.menuItem:hover .subMenu {
+   opacity: 1;
+}
+
+/* Estilos para los íconos */
+.iconBoxGb .icon i:before {
+   background: linear-gradient(45deg, #0c86ef, #0cef9b);
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+   padding-left: 1px;
+}
+
+.iconBoxGbA .icon i:before {
+   background-image: linear-gradient(45deg, #2ca7ff 35%, #31d078 75%);
+}
+
+.iconBoxGbB .icon i:before {
+   background-image: linear-gradient(45deg, #f32b2b 35%, #efbe0c 75%);
+}
+
+.iconBoxGbC .icon i:before {
+   background-image: linear-gradient(45deg, #7176ff 35%, #b26cea 75%);
+}
+
+.iconBoxGbD .icon i:before {
+   background-image: linear-gradient(45deg, #79c76f 35%, #bed09b 75%);
+}
+
+.iconBoxGbE .icon i:before {
+   background-image: linear-gradient(45deg, #6082ff 35%, #ff5dbe 75%);
+}
+
+.iconBoxGbF .icon i:before {
+   background-image: linear-gradient(45deg, #808080 35%, #bbbbbb 75%);
+}
+
+.menuItem .iconBox:hover .text i {
+   clip-path: inset(0 0 0 0);
+   transition: clip-path 0.1s ease-out;
+}
+
+.menuItem .iconBox:hover .icon, .menuItem .iconBox:hover .title, .menuItem .iconBox:hover .subText {
+   color: rgb(89 110 123);
+}
+
+#subMenuBottom {
+   background: #d4e3ea70;
+   position: absolute;
+   bottom: 0;
+   opacity: 0;
+   transition: all 0.25s ease-out, height 0.1s ease-out;
+   left: 0;
+   width: 100%;
+   height: 5em;
+}
+
+.menuItem.highlight:hover ~ #subMenuContainer #subMenuHolder #subMenuBottom {
+   height: 7.5em;
+}
