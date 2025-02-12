@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 const SectionCards = ({ product }) => {
   // Verificación para evitar el error de undefined
   if (!product || !product.name) {
-    return <div>No product available</div>;
+    return <div></div>
   }
 
   return (

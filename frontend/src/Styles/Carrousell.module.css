@@ -1,0 +1,94 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carouselContainer {
+    position: relative;
+    width: 100vw;
+    height: 350px;
+    margin-top: 15vh;
+    margin-bottom: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .carouselItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: display 10s infinite;
+  }
+  
+  .carouselItem img {
+    width: 40%;  /* Aumentamos el tamaño de la imagen */
+    height: auto;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+    margin-left: 5%;  /* Ajuste de margen para que no quede tan pegada */
+  }
+  
+  .carouselItem .textContainer {
+    width: 35%;
+    padding-left: 2rem;  /* Ajusta el padding */
+    color: #333;
+    text-align: left;
+  }
+  
+  .carouselItem .textContainer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .carouselItem .textContainer p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  @keyframes display {
+    0% {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+  }
+  
+  .carouselContainer > .carouselItem:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .carouselContainer > .carouselItem:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .carouselContainer > .carouselItem:nth-child(3) {
+    animation-delay: 4s;
+  }
+  
+  .carouselContainer > .carouselItem:nth-child(4) {
+    animation-delay: 6s;
+  }
+  
+  .carouselContainer > .carouselItem:nth-child(5) {
+    animation-delay: 8s;
+  }
+  
