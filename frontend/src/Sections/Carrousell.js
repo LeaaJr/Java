@@ -24,15 +24,15 @@ export function Carrousell () {
                 <img src="https://media-assets.wired.it/photos/67225df7b1edef09a70ad237/16:9/w_1920,c_limit/Apple-MacBook-Pro-M4-lineup.jpg" alt="Imagen 3" className={style.pic} />
                 <div className={style.textContainer}>
                     <h2>MacBook Pro M4</h2>
-                    <p>Descripción breve del producto destacado, destacando sus beneficios y características.</p>
+                    <p>The M4 Pro chip allows you to perform the most demanding tasks, such as compiling millions of lines of code. M4 Max can handle even the most complex workflows, such as rendering complex 3D content.</p>
                 </div>
             </div>
 
             <div className={style.carouselItem}>
                 <img src="https://media.wired.com/photos/620ec99bc14aa6d334a5d91c/master/pass/Gear-Apple-Watch-Fitness-Tracker.jpg" alt="Imagen 4" className={style.pic} />
                 <div className={style.textContainer}>
-                    <h2>Producto Destacado 4</h2>
-                    <p>Descripción breve del producto destacado, destacando sus beneficios y características.</p>
+                    <h2>Apple Watch Ultra 2</h2>
+                    <p>Apple Watch Ultra 2 is the ideal watch for sports and adventure, and now it's also available with a stunning new black titanium case.</p>
                 </div>
             </div>
 

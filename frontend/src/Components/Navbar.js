@@ -1,12 +1,13 @@
 import React from "react";
 import styles from '../Styles/Navbar.module.css'; // Importa los estilos como un objeto
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className={styles.menu}> {/* Aplica la clase .menu del CSS Module */}
       <div className={styles.menuItem}> {/* Aplica la clase .menuItem */}
         <div className={styles.menuText}>
-          <a href="#">Home</a>
+          <Link to="/">Home</ Link>
         </div>
         <div className={styles.subMenu}>
           <h3>Submenu Item 1</h3>
@@ -15,7 +16,7 @@ const Navbar = () => {
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
-          <a href="#">Products</a>
+          <Link href="/Products">Products</ Link>
         </div>
         <div className={styles.subMenu}>
           <h3>Submenu Item 2</h3>
