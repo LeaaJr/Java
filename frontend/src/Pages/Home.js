@@ -4,6 +4,7 @@ import SectionCards from '../Sections/SectionCards';
 import { Header } from "../Components/Header";
 import { Carrousell } from "../Sections/Carrousell";
 import '../Styles/Home.css';
+import { Footer } from "../Components/Footer";
 
 export function Home() {
   const [productos, setProductos] = useState([]);
@@ -56,6 +57,7 @@ export function Home() {
           <SectionCards key={index} product={product} />
         ))}
       </div>
+      <Footer />
     </>
   );
 }
