@@ -16,4 +16,11 @@ body {
     font-weight: bold; /* Para hacer el texto un poco más destacado */
     text-transform: uppercase; /* Opcional: para hacer el texto más prominente */
   }
+
+  .texttittle {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
   

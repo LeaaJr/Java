@@ -3,8 +3,9 @@ import axios from "axios";
 import SectionCards from '../Sections/SectionCards';
 import { Header } from "../Components/Header";
 import { Carrousell } from "../Sections/Carrousell";
-import '../Styles/Home.css';
+import styles from '../Styles/Home.module.css';
 import { Footer } from "../Components/Footer";
+import { FAQ } from "../Components/Faq";
 
 export function Home() {
   const [productos, setProductos] = useState([]);
@@ -46,8 +47,8 @@ export function Home() {
   return (
     <>
       <Header />
-      <div className="text-center">
-        <h1 className="text-">Featured Products</h1>
+      <div className="text-center pt-32">
+        <h1 className={styles.texttittle}>Featured Products</h1>
       </div>
       <Carrousell />
       
@@ -57,6 +58,7 @@ export function Home() {
           <SectionCards key={index} product={product} />
         ))}
       </div>
+      <FAQ />
       <Footer />
     </>
   );
