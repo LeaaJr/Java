@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import SectionCards from '../Sections/SectionCards';
+import React from "react";
+import MenuCards from '../Sections/MenuCards';
 import { Header } from "../Components/Header";
 import { Carrousell } from "../Sections/Carrousell";
 import styles from '../Styles/Home.module.css';
@@ -8,22 +7,8 @@ import { Footer } from "../Components/Footer";
 import { FAQ } from "../Components/Faq";
 
 export function Home() {
-  const [productos, setProductos] = useState([]);
-
-  // Función para obtener los productos desde la API
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/products")  // Asegúrate de que la URL coincida con tu backend
-      .then((response) => {
-        setProductos(response.data);  // Asignamos los productos a nuestro estado
-      })
-      .catch((error) => {
-        console.error("Error al obtener los productos:", error);
-      });
-  }, []);
-
-  // Mantén la lógica de mostrar productos (como lo tenías antes)
-  const products = productos.length > 0 ? productos : [
+  
+  const products = [
     {
       name: "Notebooks",
       category: "computers",
@@ -51,13 +36,19 @@ export function Home() {
         <h1 className={styles.texttittle}>Featured Products</h1>
       </div>
       <Carrousell />
-      
-      <div>
-        {/* Mapea los productos y pasa a SectionCards como lo tenías */}
-        {products.map((product, index) => (
-          <SectionCards key={index} product={product} />
+
+      <div className="menu-container">
+        {/* Pasamos los productos a cada MenuCard con las categorías */}
+        {products.map((product) => (
+          <MenuCards 
+            key={product.name} 
+            category={product.category} 
+            categoryName={product.name} 
+            product={product} 
+          />
         ))}
       </div>
+
       <FAQ />
       <Footer />
     </>

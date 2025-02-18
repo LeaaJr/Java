@@ -1,32 +1,39 @@
-import { Link } from 'react-router-dom'; // Importa Link
-import styles from '../Styles/SectionCard.module.css'; // Asegúrate de que la ruta sea correcta
 import React from 'react';
+import styles from '../Styles/SectionCards.module.css';  // Importa los estilos CSS que mencionaste
 
 const SectionCards = ({ product }) => {
-  // Verificación para evitar el error de undefined
-  if (!product || !product.name) {
-    return <div></div>; // Retorna un div vacío si no hay producto
-  }
-
-  // Construye una ruta dinámica utilizando el nombre del producto (se mejora con un formato más seguro)
-  const categoryLink = `/products?category=${product.category.toLowerCase()}`;
-
   return (
-    <div className={`${styles.card} ${styles[`card-${product.category.replace(/\s+/g, '')}`]}`}>
-      <div className={styles.overlay}></div>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{product.name}</h2>
-          <p className={styles.info}>{product.year || 'Year not specified'}</p>
+    <div className={styles.nft}>
+      <div className={styles.main}>
+        <img
+          className={styles.tokenImage}
+          src={product.imageUrl || "https://via.placeholder.com/300"}  // Si no hay imagen, muestra una por defecto
+          alt={product.name}
+        />
+        <h2>{product.name}</h2>
+        <p className={styles.description}>{product.description}</p>
+        <div className={styles.tokenInfo}>
+          <div className={styles.price}>
+            <ins>◘</ins>
+            <p>{product.price} ETH</p>
+          </div>
+          <div className={styles.duration}>
+            <ins>◷</ins>
+            <p>{product.duration} days left</p>
+          </div>
         </div>
-        <p className={styles.desc}>{product.description || 'No description available'}</p>
-        <div className={styles.buyButton}>
-          {/* Aquí utilizamos Link para redirigir a una página del producto */}
-          <Link to={categoryLink}>
-            <button className={styles.btn}>Buy</button>
-          </Link>
+        <hr />
+        <div className={styles.creator}>
+          <div className={styles.wrapper}>
+            <img
+              src={product.creatorImage || "https://via.placeholder.com/40"}  // Imagen del creador
+              alt="Creator"
+            />
+          </div>
+          <p><ins>Creation of</ins> {product.creator}</p>
         </div>
       </div>
+      <p>No products found</p>
     </div>
   );
 };

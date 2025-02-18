@@ -6,7 +6,7 @@
    position: relative;
    z-index: 2;
    margin: 0 auto;
-   top: 3em;
+   top: 2em;
 }
 
 .menuItem {
@@ -15,7 +15,7 @@
    flex: 1;
    display: flex;
    justify-content: center;
-   padding: 1em 1.5em;
+   padding: 1em 1em;
    text-align: center;
    position: relative;
 }
@@ -32,8 +32,8 @@
 
 .subMenu {
    position: absolute;
-   top: 7em;
-   background: white;
+   top: 3em;
+   background: rgb(4, 4, 4);
    border-radius: 10px;
    padding: 1.5em;
    opacity: 0;

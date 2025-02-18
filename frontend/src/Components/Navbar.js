@@ -1,6 +1,7 @@
 import React from "react";
 import styles from '../Styles/Navbar.module.css'; // Importa los estilos como un objeto
 import { Link } from "react-router-dom";
+import { ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -9,10 +10,7 @@ const Navbar = () => {
         <div className={styles.menuText}>
           <Link to="/">Home</ Link>
         </div>
-        <div className={styles.subMenu}>
-          <h3>Submenu Item 1</h3>
-          <p>Details about the first submenu item.</p>
-        </div>
+  
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
@@ -34,11 +32,7 @@ const Navbar = () => {
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
-          <a href="#">Contact</a>
-        </div>
-        <div className={styles.subMenu}>
-          <h3>Submenu Item 4</h3>
-          <p>Details about the fourth submenu item.</p>
+          <Link to="/ShopCarts"> <ShoppingCart /> </Link>
         </div>
       </div>
     </nav>
