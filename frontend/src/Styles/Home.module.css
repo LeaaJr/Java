@@ -1,26 +1,25 @@
 /* Asegúrate de que el fondo de tu página sea oscuro, si no está configurado */
 body {
-    color: #fff; /* Asegúrate de que el texto por defecto sea blanco */
-    font-family: Arial, sans-serif;
-  }
-  
-  .text-center {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 36px; /* Ajusta el tamaño de la fuente según tu preferencia */
-    color: #ddd; /* Gris claro para el título */
-    font-weight: bold; /* Para hacer el texto un poco más destacado */
-    text-transform: uppercase; /* Opcional: para hacer el texto más prominente */
-  }
+  color: #fff; /* Asegúrate de que el texto por defecto sea blanco */
+  font-family: Arial, sans-serif;
+}
 
-  .texttittle {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-  
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 36px; /* Ajusta el tamaño de la fuente según tu preferencia */
+  color: #ddd; /* Gris claro para el título */
+  font-weight: bold; /* Para hacer el texto un poco más destacado */
+  text-transform: uppercase; /* Opcional: para hacer el texto más prominente */
+}
+
+.texttittle {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
