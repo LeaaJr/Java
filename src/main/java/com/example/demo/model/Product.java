@@ -16,14 +16,26 @@ public class Product {
     @Column(nullable = false)
     private double precio;
 
+    @Column(name = "imageurl")  // Asegura que coincide con la BD
+    private String imageUrl;
+
+    @Column(columnDefinition = "TEXT") // Para descripciones largas
+    private String descripcion;
+
+    @Column(nullable = false)
+    private int stock;
+
     // Constructor vacío (obligatorio para JPA)
     public Product() {
     }
 
-    // Constructor con parámetros (opcional, pero útil)
-    public Product(String nombre, double precio) {
+    // Constructor con parámetros
+    public Product(String nombre, double precio, String imageUrl, String descripcion, int stock) {
         this.nombre = nombre;
         this.precio = precio;
+        this.imageUrl = imageUrl;
+        this.descripcion = descripcion;
+        this.stock = stock;
     }
 
     // Getters y Setters
@@ -51,13 +63,39 @@ public class Product {
         this.precio = precio;
     }
 
-    // Método toString (opcional, pero útil para debugging)
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", stock=" + stock +
                 '}';
     }
 }

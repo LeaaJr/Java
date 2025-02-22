@@ -13,7 +13,7 @@ const ProductsPage = () => {
     axios
       .get("http://localhost:8080/api/products")
       .then((response) => {
-        console.log("Respuesta de la API:", response); // Verifica la respuesta completa
+        console.log("Respuesta de la API:", response);
         console.log("Datos obtenidos desde la API:", response.data);
         setProductos(response.data || []); // Asegura que siempre sea un array
       })
@@ -23,7 +23,7 @@ const ProductsPage = () => {
   }, []);
 
   useEffect(() => {
-    if (!productos) return; // Evita que el filtro corra antes de que `productos` tenga datos
+    if (!productos) return;
 
     const queryParams = new URLSearchParams(location.search);
     const category = queryParams.get("category");
@@ -40,15 +40,10 @@ const ProductsPage = () => {
 
   return (
     <div>
-
       {productos.length === 0 ? (
-        <p>Cargando productos...</p> // ⬅ Mensaje mientras carga
+        <p>Cargando productos...</p>
       ) : (
-        <div className="bg-black">
-          {productos.map((product) => (
-            <SectionCards key={product.id} product={product} /> // ⬅ Usa el componente con estilos propios
-          ))}
-        </div>
+        <SectionCards products={productos} /> // Aquí solo pasa la lista completa de productos
       )}
     </div>
   );
