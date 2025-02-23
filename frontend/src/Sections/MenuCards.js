@@ -11,6 +11,9 @@ const MenuCards = ({ category, categoryName, product }) => {
   // Construye una ruta dinámica utilizando la categoría
   const categoryLink = `/products?category=${category.toLowerCase()}`;
 
+  console.log("Category:", category);  // Para verificar qué valor tiene category
+
+
   return (
     <div className={`${styles.card} ${styles[`card-${category.replace(/\s+/g, '')}`]}`}>
       <div className={styles.overlay}></div>

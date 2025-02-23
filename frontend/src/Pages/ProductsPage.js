@@ -9,6 +9,7 @@ const ProductsPage = () => {
 
   const location = useLocation();
 
+  // Obtener todos los productos al cargar la página
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/products")
@@ -22,6 +23,7 @@ const ProductsPage = () => {
       });
   }, []);
 
+  // Filtrar productos cuando cambia la búsqueda en la URL (por ejemplo, categoría)
   useEffect(() => {
     if (!productos) return;
 
@@ -29,21 +31,23 @@ const ProductsPage = () => {
     const category = queryParams.get("category");
 
     if (category) {
-      setFilteredProducts(productos.filter((product) => product.category === category));
+      // Filtrar productos por categoría
+      setFilteredProducts(productos.filter((product) => product.categoria === category));
     } else {
+      // Si no hay categoría, mostrar todos los productos
       setFilteredProducts(productos);
     }
-  }, [location.search, productos]);
+  }, [location.search, productos]); // Dependencias: cuando cambian la URL o los productos
 
   console.log("Productos obtenidos:", productos);
   console.log("Productos filtrados:", filteredProducts);
 
   return (
     <div>
-      {productos.length === 0 ? (
-        <p>Cargando productos...</p>
+      {filteredProducts.length === 0 ? (
+        <p className="text-center">Cargando productos...</p>
       ) : (
-        <SectionCards products={productos} /> // Aquí solo pasa la lista completa de productos
+        <SectionCards products={filteredProducts} /> // Pasa los productos filtrados aquí
       )}
     </div>
   );

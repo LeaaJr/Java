@@ -25,17 +25,21 @@ public class Product {
     @Column(nullable = false)
     private int stock;
 
+    @Column(nullable = false, length = 50) // ✅ Nueva columna para la categoría
+    private String categoria;
+
     // Constructor vacío (obligatorio para JPA)
     public Product() {
     }
 
     // Constructor con parámetros
-    public Product(String nombre, double precio, String imageUrl, String descripcion, int stock) {
+    public Product(String nombre, double precio, String imageUrl, String descripcion, int stock, String categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.imageUrl = imageUrl;
         this.descripcion = descripcion;
         this.stock = stock;
+        this.categoria = categoria; // ✅ Agregamos la categoría
     }
 
     // Getters y Setters
@@ -87,6 +91,14 @@ public class Product {
         this.stock = stock;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -96,6 +108,7 @@ public class Product {
                 ", imageUrl='" + imageUrl + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", stock=" + stock +
+                ", categoria='" + categoria + '\'' + // ✅ Mostramos la categoría en el toString()
                 '}';
     }
 }

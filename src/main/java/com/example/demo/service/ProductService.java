@@ -1,51 +1,55 @@
-    package com.example.demo.service;
+package com.example.demo.service;
 
-    import com.example.demo.model.Product;
-    import com.example.demo.repository.ProductRepository;
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.stereotype.Service;
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-    import java.util.List;
+import java.util.List;
 
-    @Service
-    public class ProductService {
+@Service
+public class ProductService {
 
-        @Autowired
-        private ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
-        // Obtener todos los productos
-        public List<Product> obtenerTodosLosProductos() {
-            return productRepository.findAll();
-        }
+    // Obtener todos los productos
+    public List<Product> obtenerTodosLosProductos() {
+        return productRepository.findAll();
+    }
 
-        // Agregar un producto
-        public Product agregarProducto(Product producto) {
+    // Obtener productos por categoría
+    public List<Product> obtenerProductosPorCategoria(String categoria) {
+        return productRepository.findByCategoria(categoria); // ✅ Método para filtrar por categoría
+    }
+
+    // Agregar un producto
+    public Product agregarProducto(Product producto) {
+        return productRepository.save(producto);
+    }
+
+    // Obtener un producto por ID
+    public Product obtenerProductoPorId(Long id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    // Actualizar un producto
+    public Product actualizarProducto(Long id, Product productoActualizado) {
+        Product producto = productRepository.findById(id).orElse(null);
+        if (producto != null) {
+            producto.setNombre(productoActualizado.getNombre());
+            producto.setPrecio(productoActualizado.getPrecio());
+            producto.setImageUrl(productoActualizado.getImageUrl());
+            producto.setDescripcion(productoActualizado.getDescripcion());
+            producto.setStock(productoActualizado.getStock());
+            producto.setCategoria(productoActualizado.getCategoria()); // ✅ Actualizamos la categoría
             return productRepository.save(producto);
         }
-
-        // Obtener un producto por ID
-        public Product obtenerProductoPorId(Long id) {
-            return productRepository.findById(id).orElse(null);
-        }
-
-        // Actualizar un producto
-        public Product actualizarProducto(Long id, Product productoActualizado) {
-            Product producto = productRepository.findById(id).orElse(null);
-            if (producto != null) {
-                producto.setNombre(productoActualizado.getNombre());
-                producto.setPrecio(productoActualizado.getPrecio());
-                producto.setImageUrl(productoActualizado.getImageUrl()); // ✅ Agregamos la imagen
-                producto.setDescripcion(productoActualizado.getDescripcion()); // ✅ Agregamos la descripción
-                producto.setStock(productoActualizado.getStock()); // ✅ Agregamos el stock
-                return productRepository.save(producto);
-            }
-            return null;
-        }               
-
-        // Eliminar un producto
-        public void eliminarProducto(Long id) {
-            productRepository.deleteById(id);
-        }
-
-        
+        return null;
     }
+
+    // Eliminar un producto
+    public void eliminarProducto(Long id) {
+        productRepository.deleteById(id);
+    }
+}

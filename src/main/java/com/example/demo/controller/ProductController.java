@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")  // Permitir solicitudes de localhost:3000 (tu frontend)
+@CrossOrigin(origins = "http://localhost:3000")  // Permitir solicitudes del frontend
 @RequestMapping("/api/products")
 public class ProductController {
 
@@ -19,6 +19,12 @@ public class ProductController {
     @GetMapping
     public List<Product> obtenerTodosLosProductos() {
         return productService.obtenerTodosLosProductos();
+    }
+
+    // Obtener productos por categoría
+    @GetMapping("/categoria/{categoria}")
+    public List<Product> obtenerProductosPorCategoria(@PathVariable String categoria) {
+        return productService.obtenerProductosPorCategoria(categoria);
     }
 
     // Agregar un producto
