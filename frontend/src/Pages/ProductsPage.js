@@ -6,6 +6,8 @@ import SectionCards from "../Sections/SectionCards"; // Asegúrate de importar e
 const ProductsPage = () => {
   const [productos, setProductos] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
+  const [sortOrder, setSortOrder] = useState("default"); // Estado para orden de precios
 
   const location = useLocation();
 
@@ -14,8 +16,6 @@ const ProductsPage = () => {
     axios
       .get("http://localhost:8080/api/products")
       .then((response) => {
-        console.log("Respuesta de la API:", response);
-        console.log("Datos obtenidos desde la API:", response.data);
         setProductos(response.data || []); // Asegura que siempre sea un array
       })
       .catch((error) => {
@@ -30,24 +30,72 @@ const ProductsPage = () => {
     const queryParams = new URLSearchParams(location.search);
     const category = queryParams.get("category");
 
-    if (category) {
-      // Filtrar productos por categoría
-      setFilteredProducts(productos.filter((product) => product.categoria === category));
-    } else {
-      // Si no hay categoría, mostrar todos los productos
-      setFilteredProducts(productos);
-    }
-  }, [location.search, productos]); // Dependencias: cuando cambian la URL o los productos
+    let filtered = productos;
 
-  console.log("Productos obtenidos:", productos);
-  console.log("Productos filtrados:", filteredProducts);
+    // Filtrar por categoría si existe en la URL
+    if (category) {
+      filtered = filtered.filter((product) => product.categoria === category);
+    }
+
+    // Filtrar por nombre (búsqueda)
+    if (searchTerm) {
+      filtered = filtered.filter((product) =>
+        product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Ordenar por precio si está seleccionado
+    if (sortOrder === "asc") {
+      filtered = [...filtered].sort((a, b) => a.precio - b.precio);
+    } else if (sortOrder === "desc") {
+      filtered = [...filtered].sort((a, b) => b.precio - a.precio);
+    }
+
+    setFilteredProducts(filtered);
+  }, [location.search, productos, searchTerm, sortOrder]);
 
   return (
     <div>
+      {/* Contenedor del Search y Filtro de Precio */}
+      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "15px", paddingTop: "5rem", paddingInlineEnd: "10rem" }}>
+        {/* Input de Búsqueda */}
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            padding: "4px",
+            marginRight: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            background: "black",
+          }}
+        />
+
+        {/* Select para ordenar precios */}
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          style={{
+            padding: "4px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            cursor: "pointer",
+            background: "black",
+          }}
+        >
+          <option value="default">Ordenar por precio</option>
+          <option value="asc">Menor a mayor</option>
+          <option value="desc">Mayor a menor</option>
+        </select>
+      </div>
+
+      {/* Mostrar productos filtrados */}
       {filteredProducts.length === 0 ? (
-        <p className="text-center">Cargando productos...</p>
+        <p className="text-center">No se encontraron productos...</p>
       ) : (
-        <SectionCards products={filteredProducts} /> // Pasa los productos filtrados aquí
+        <SectionCards products={filteredProducts} />
       )}
     </div>
   );

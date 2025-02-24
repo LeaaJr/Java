@@ -25,10 +25,6 @@ const Navbar = () => {
         <div className={styles.menuText}>
           <a href="#">About</a>
         </div>
-        <div className={styles.subMenu}>
-          <h3>Submenu Item 3</h3>
-          <p>Details about the third submenu item.</p>
-        </div>
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
