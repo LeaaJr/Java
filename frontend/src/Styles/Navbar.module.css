@@ -1,13 +1,15 @@
 /* Navbar.module.css */
 .menu {
-   width: var(--menu-width);
+   width: 100%; /* Asegura que el Navbar ocupe todo el ancho */
    display: flex;
    justify-content: space-evenly;
-   position: relative;
-   z-index: 2;
-   margin: 0 auto;
-   top: 2em;
+   position: relative; /* Fija el Navbar en la parte superior */
+   top: 0; /* Coloca el Navbar en la parte superior */
+   z-index: 1000; /* Asegura que el Navbar esté sobre otros elementos */
+   background-color: #000000; /* Fondo oscuro para el Navbar */
    height: 3.5rem;
+   margin: 0;
+   padding-top: 2rem;
 }
 
 .menuItem {
@@ -18,7 +20,6 @@
    justify-content: center;
    padding: 1em 1em;
    text-align: center;
-   position: relative;
 }
 
 .menuText a {
@@ -34,7 +35,7 @@
 .subMenu {
    position: absolute;
    top: 3em;
-   background: rgb(30, 30, 30);
+   background: rgb(0, 0, 0);
    border-radius: 10px;
    padding: 1.5em;
    opacity: 0;
@@ -44,6 +45,12 @@
 .menuItem:hover .subMenu {
    opacity: 1;
 }
+
+/* Espaciado superior para que el contenido no quede tapado */
+body {
+   margin-top: 3.5rem; /* Esto da espacio para que el contenido no quede detrás del Navbar */
+}
+
 
 /* Estilos para los íconos */
 .iconBoxGb .icon i:before {
