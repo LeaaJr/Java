@@ -7,24 +7,24 @@ interface FAQItem {
 }
 const faqData: FAQItem[] = [
   {
-    question: "Can I use Flowbite in open-source projects?",
+    question: "How are the shipments?",
     answer:
-      "Yes, you can use Flowbite in open-source projects. Our license allows for both personal and commercial use.",
+      "Shipments are made through mail or express shipping in 24 hours with an additional charge.",
   },
   {
-    question: "Is there a Figma file available?",
+    question: "What happens if my product is found defective?",
     answer:
-      "Yes, we provide Figma design files for all our components and templates.",
+      "We have a 3-year warranty for manufacturing errors and a 1-year warranty from our company.",
   },
   {
-    question: "What are the differences between Flowbite and Tailwind UI?",
+    question: "What happens if I regret my purchase?",
     answer:
-      "While both are built on Tailwind CSS, Flowbite offers a different set of components and features. Each has its own unique advantages.",
+      "If you regret the purchase before 7 days, we will refund your money or you can use it to buy another product.",
   },
   {
-    question: "What about browser support?",
+    question: "What payment methods do you accept?",
     answer:
-      "Flowbite is compatible with all modern browsers and provides fallbacks for older versions.",
+      "We accept all payment methods such as Visa, MasterCard, American Express, Discover and even Paypal.",
   },
 ];
 const AccordionItem = ({

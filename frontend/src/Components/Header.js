@@ -1,9 +1,13 @@
 import React from "react";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import styles from "../Styles/Header.module.css";
+import TechBrands from "./TechBrands";
+
 
 
 export const Header = () => {
+
+
   return (
     <header className={styles.header}>
       <div className={styles.content}>
@@ -42,6 +46,9 @@ export const Header = () => {
           </a>
         </div>
       </div>
+      <TechBrands />
     </header>
   );
 };
+
+export default Header;

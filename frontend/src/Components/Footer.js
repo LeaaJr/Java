@@ -3,6 +3,8 @@ import { Facebook, Instagram, Youtube } from "lucide-react";
 
 
 export const Footer = () => {
+
+  
   return (
     <footer className="w-full bg-black text-white px-8 py-12">
       <div className="max-w-6xl mx-auto">
@@ -75,3 +77,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;

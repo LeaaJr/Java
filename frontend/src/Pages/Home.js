@@ -3,8 +3,8 @@ import MenuCards from '../Sections/MenuCards';
 import { Header } from "../Components/Header";
 import { Carrousell } from "../Sections/Carrousell";
 import styles from '../Styles/Home.module.css';
-import { Footer } from "../Components/Footer";
 import { FAQ } from "../Components/Faq";
+import IconCircle from "../Components/IconCircle";
 
 export function Home() {
   
@@ -36,6 +36,7 @@ export function Home() {
         <h1 className={styles.texttittle}>Featured Products</h1>
       </div>
       <Carrousell />
+      <IconCircle />
 
       <div className="menu-container">
         {/* Pasamos los productos a cada MenuCard con las categorías */}
@@ -50,7 +51,7 @@ export function Home() {
       </div>
 
       <FAQ />
-      <Footer />
+
     </>
   );
 }

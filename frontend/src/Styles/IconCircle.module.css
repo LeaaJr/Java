@@ -1,0 +1,35 @@
+.iconContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .iconItem {
+    text-align: center;
+  }
+  
+  .iconCircle {
+    background-color: #d3d3d3;
+    border-radius: 60%;
+    padding: 30px;
+    display: inline-block;
+    font-size: 30px;
+    color: #403f3f;
+    transition: transform 0.3s ease;
+  }
+  
+  .iconCircle:hover {
+    transform: scale(1.2);
+    background-color: #eeecec;;
+  }
+  
+  .iconText {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #4c4c4c;
+    font-weight: bold;
+    margin-bottom: 5rem;
+  }
+  

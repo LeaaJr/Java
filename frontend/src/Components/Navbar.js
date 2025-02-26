@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
-          <a href="#">About</a>
+          <a href="/Faq">About</a>
         </div>
       </div>
       <div className={styles.menuItem}>
