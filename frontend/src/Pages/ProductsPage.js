@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import SectionCards from "../Sections/SectionCards"; // Asegúrate de importar el componente correctamente
+import SectionCards from "../Sections/SectionCards";
+import { useCart } from "../Context/CartContext"; // Importar el contexto del carrito
 
 const ProductsPage = () => {
   const [productos, setProductos] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
-  const [sortOrder, setSortOrder] = useState("default"); // Estado para orden de precios
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("default");
 
   const location = useLocation();
+  const { addToCart } = useCart(); // Obtiene addToCart del contexto
 
-  // Obtener todos los productos al cargar la página
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/products")
       .then((response) => {
-        setProductos(response.data || []); // Asegura que siempre sea un array
+        setProductos(response.data || []);
       })
       .catch((error) => {
         console.error("Error al obtener los productos:", error);
       });
   }, []);
 
-  // Filtrar productos cuando cambia la búsqueda en la URL (por ejemplo, categoría)
   useEffect(() => {
     if (!productos) return;
 
@@ -32,19 +32,16 @@ const ProductsPage = () => {
 
     let filtered = productos;
 
-    // Filtrar por categoría si existe en la URL
     if (category) {
       filtered = filtered.filter((product) => product.categoria === category);
     }
 
-    // Filtrar por nombre (búsqueda)
     if (searchTerm) {
       filtered = filtered.filter((product) =>
         product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    // Ordenar por precio si está seleccionado
     if (sortOrder === "asc") {
       filtered = [...filtered].sort((a, b) => a.precio - b.precio);
     } else if (sortOrder === "desc") {
@@ -56,9 +53,7 @@ const ProductsPage = () => {
 
   return (
     <div>
-      {/* Contenedor del Search y Filtro de Precio */}
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "15px", paddingTop: "5rem", paddingInlineEnd: "10rem" }}>
-        {/* Input de Búsqueda */}
         <input
           type="text"
           placeholder="Buscar producto..."
@@ -72,8 +67,6 @@ const ProductsPage = () => {
             background: "black",
           }}
         />
-
-        {/* Select para ordenar precios */}
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
@@ -91,11 +84,10 @@ const ProductsPage = () => {
         </select>
       </div>
 
-      {/* Mostrar productos filtrados */}
       {filteredProducts.length === 0 ? (
         <p className="text-center">No se encontraron productos...</p>
       ) : (
-        <SectionCards products={filteredProducts} />
+        <SectionCards products={filteredProducts} addToCart={addToCart} /> /* Pasamos addToCart */
       )}
     </div>
   );

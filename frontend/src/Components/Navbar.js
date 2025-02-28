@@ -28,7 +28,7 @@ const Navbar = () => {
       </div>
       <div className={styles.menuItem}>
         <div className={styles.menuText}>
-          <Link to="/ShopCarts"> <ShoppingCart /> </Link>
+          <Link to="/CartItem"> <ShoppingCart /> </Link>
         </div>
       </div>
     </nav>
