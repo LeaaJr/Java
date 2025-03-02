@@ -17,8 +17,22 @@ const Navbar = () => {
           <Link href="/Products">Products</ Link>
         </div>
         <div className={styles.subMenu}>
-          <h3>Submenu Item 2</h3>
-          <p>Details about the second submenu item.</p>
+          <h3></h3>
+          <Link to={"#"}>
+          <p>Smartphone</p>
+          </Link>
+          <Link to={"#"}>
+          <p>Computers</p>
+          </Link>
+          <Link to={"#"}>
+          <p>Headphones</p>
+          </Link>
+          <Link to={"#"}>
+          <p>Tablet</p>
+          </Link>
+          <Link to={"#"}>
+          <p>Smartwatch</p>
+          </Link>
         </div>
       </div>
       <div className={styles.menuItem}>

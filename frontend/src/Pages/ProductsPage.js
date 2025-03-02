@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SectionCards from "../Sections/SectionCards";
 import { useCart } from "../Context/CartContext"; // Importar el contexto del carrito
+import Footer from "../Components/Footer";
 
 const ProductsPage = () => {
   const [productos, setProductos] = useState([]);
@@ -52,6 +53,7 @@ const ProductsPage = () => {
   }, [location.search, productos, searchTerm, sortOrder]);
 
   return (
+    <>
     <div>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "15px", paddingTop: "5rem", paddingInlineEnd: "10rem" }}>
         <input
@@ -90,6 +92,8 @@ const ProductsPage = () => {
         <SectionCards products={filteredProducts} addToCart={addToCart} /> /* Pasamos addToCart */
       )}
     </div>
+    <Footer />
+    </>
   );
 };
 

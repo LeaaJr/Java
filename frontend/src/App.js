@@ -4,7 +4,6 @@ import Home from "./Pages/Home";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductGallery from "./Pages/ProductGallery";
 import CartItem from "./Pages/CartItem";
-import Footer from "./Components/Footer";
 import { CartProvider } from "./Context/CartContext"; // Importa el CartProvider
 
 const App = () => {
@@ -19,7 +18,6 @@ const App = () => {
           <Route path="/CartItem" element={<CartItem />} />
         </Routes>
       </Router>
-      <Footer />
     </CartProvider>
   );
 };

@@ -79,7 +79,7 @@ export const CartItem = () => {
       )}
 
       {cart.length > 0 && (
-        <div className="mt-10 bg-gray-900 p-6 rounded-lg bg-[#202020]">
+        <div className="mt-10 p-6 rounded-lg bg-[#202020]">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold">Order Summary</h2>
             <button className="text-gray-400 hover:text-white transition-colors">
@@ -111,7 +111,7 @@ export const CartItem = () => {
           </div>
 
           <div className="flex gap-4 mt-6">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors flex-1">
+            <button className="bg-gray-700 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors flex-1">
               Proceed to Checkout
             </button>
             <button

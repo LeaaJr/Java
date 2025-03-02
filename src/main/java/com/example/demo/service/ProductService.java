@@ -33,6 +33,10 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
+    public List<Product> getFeaturedProducts() {
+        return productRepository.findByIsFeatured(true); // Suponiendo que tienes un campo isFeatured
+    }
+
     // Actualizar un producto
     public Product actualizarProducto(Long id, Product productoActualizado) {
         Product producto = productRepository.findById(id).orElse(null);
