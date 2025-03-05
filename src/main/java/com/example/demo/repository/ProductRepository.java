@@ -7,5 +7,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findByCategoria(String categoria); // ✅ Nuevo método para filtrar por categoría
+    List<Product> findByCategoria(String categoria);
+
 }

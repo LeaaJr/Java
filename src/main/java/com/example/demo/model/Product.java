@@ -28,6 +28,9 @@ public class Product {
     @Column(nullable = false, length = 50) // ✅ Nueva columna para la categoría
     private String categoria;
 
+    @Column(nullable = false)
+    private boolean isFeatured;  // Nuevo campo para productos destacados
+
     // Constructor vacío (obligatorio para JPA)
     public Product() {
     }
@@ -97,6 +100,15 @@ public class Product {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    // Getter y Setter
+    public boolean isFeatured() {
+        return isFeatured;
+    }
+
+    public void setFeatured(boolean featured) {
+        isFeatured = featured;
     }
 
     @Override

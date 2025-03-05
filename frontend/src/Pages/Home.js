@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import MenuCards from '../Sections/MenuCards';
 import { Header } from "../Components/Header";
 import { Carrousell } from "../Sections/Carrousell";
@@ -6,14 +6,9 @@ import styles from '../Styles/Home.module.css';
 import { FAQ } from "../Components/Faq";
 import IconCircle from "../Components/IconCircle";
 import Footer from "../Components/Footer";
-import SectionCards from "../Sections/SectionCards";
-import axios from "axios";
 
 export function Home() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("all");
-  const [featuredProducts, setFeaturedProducts] = useState([]); // 👈 Estado para productos destacados
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const products = [
     {
@@ -63,20 +58,7 @@ export function Home() {
   const filteredProducts = categoriaSeleccionada === "all"
     ? products
     : products.filter(product => product.category === categoriaSeleccionada);
-
-  // 🔹 Cargar los productos destacados desde el backend
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/productos/destacados") // Ajusta la ruta según tu backend
-      .then((response) => {
-        setFeaturedProducts(response.data); // Guardamos los productos en el estado
-        setLoading(false);
-      })
-      .catch(() => {
-        setError("Error al obtener los productos destacados");
-        setLoading(false);
-      });
-  }, []);
-
+  
   return (
     <>
       <Header />
@@ -99,14 +81,6 @@ export function Home() {
       </div>
 
       <FAQ />
-
-      <h2 className="text-center text-white text-2xl font-bold mt-10">Productos Destacados</h2>
-
-      {loading ? <p className="text-center text-white">Cargando productos...</p> : (
-        <SectionCards products={featuredProducts} />
-      )}
-
-      {error && <p className="text-center text-red-500">{error}</p>}
 
       <Footer />
     </>
