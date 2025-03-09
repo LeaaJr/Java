@@ -19,13 +19,19 @@ public class Product {
     @Column(name = "imageurl")  // Asegura que coincide con la BD
     private String imageUrl;
 
+    @Column(name = "imageurl2")  // Nueva columna para la segunda imagen
+    private String imageUrl2;
+
+    @Column(name = "imageurl3")  // Nueva columna para la tercera imagen
+    private String imageUrl3;
+
     @Column(columnDefinition = "TEXT") // Para descripciones largas
     private String descripcion;
 
     @Column(nullable = false)
     private int stock;
 
-    @Column(nullable = false, length = 50) // ✅ Nueva columna para la categoría
+    @Column(nullable = false, length = 50) // Nueva columna para la categoría
     private String categoria;
 
     @Column(nullable = false)
@@ -36,13 +42,15 @@ public class Product {
     }
 
     // Constructor con parámetros
-    public Product(String nombre, double precio, String imageUrl, String descripcion, int stock, String categoria) {
+    public Product(String nombre, double precio, String imageUrl, String imageUrl2, String imageUrl3, String descripcion, int stock, String categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.imageUrl = imageUrl;
+        this.imageUrl2 = imageUrl2;
+        this.imageUrl3 = imageUrl3;
         this.descripcion = descripcion;
         this.stock = stock;
-        this.categoria = categoria; // ✅ Agregamos la categoría
+        this.categoria = categoria;
     }
 
     // Getters y Setters
@@ -78,6 +86,22 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
+    public String getImageUrl2() {
+        return imageUrl2;
+    }
+
+    public void setImageUrl2(String imageUrl2) {
+        this.imageUrl2 = imageUrl2;
+    }
+
+    public String getImageUrl3() {
+        return imageUrl3;
+    }
+
+    public void setImageUrl3(String imageUrl3) {
+        this.imageUrl3 = imageUrl3;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -102,7 +126,6 @@ public class Product {
         this.categoria = categoria;
     }
 
-    // Getter y Setter
     public boolean isFeatured() {
         return isFeatured;
     }
@@ -118,9 +141,11 @@ public class Product {
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", imageUrl2='" + imageUrl2 + '\'' +
+                ", imageUrl3='" + imageUrl3 + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", stock=" + stock +
-                ", categoria='" + categoria + '\'' + // ✅ Mostramos la categoría en el toString()
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }

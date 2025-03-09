@@ -1,10 +1,10 @@
-/* DeviceDisplay.module.css */
+/* DeviceDisplay.module.css */ 
 
 .wrapper {
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   height: 400px;
-  background-color: #000000;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,10 @@
 }
 
 .content {
-  max-width: 1024px;
+  max-width: 100%;
   width: 100%;
   padding: 0 4%;
-  padding-top: 250px;
+  padding-top: 2rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -41,7 +41,7 @@
   max-width: 300px;
   min-width: 200px;
   height: 250px;
-  background-color: #292929;
+  background-color: transparent;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
@@ -59,11 +59,10 @@
 
 .icon {
   margin: 0 auto;
-  width: 100%;
-  height: 80px;
-  max-width:80px;
-  background: linear-gradient(90deg, #FF7E7E 0%, #FF4848 40%, rgba(0, 0, 0, 0.28) 60%);
-  border-radius: 100%;
+  width: 100px; /* Aumenta el ancho del contenedor */
+  height: 100px; /* Aumenta la altura del contenedor */
+  background: linear-gradient(90deg, #6f6d6d 0%, #4d4c4c 40%, rgba(0, 0, 0, 0.28) 60%);
+  border-radius: 50%; /* Mantiene la forma circular */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,10 +72,15 @@
   background-size: 200px;
 }
 
+/* Aumenta el tamaño del ícono */
+.icon i {
+  font-size: 48px; /* O el tamaño que desees */
+}
+
+
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
 
 .card_title {
   width: 100%;
@@ -114,155 +118,14 @@
 }
 
 .card:hover .icon {
-  background-position: -120px;
+  background-position: -90px;
   transition: all 0.3s ease;
 }
 
 .card:hover .icon i {
-  background: linear-gradient(90deg, #FF7E7E, #FF4848);
+  background: linear-gradient(90deg, #323232, #494848);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 1;
   transition: all 0.3s ease;
-}
-
-.about {
-  position: fixed;
-  z-index: 10;
-  bottom: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  transition: all 0.2s ease;
-}
-
-.about_bgLinks {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 100%;
-  backdrop-filter: blur(5px);
-  position: absolute;
-}
-
-.about_logo {
-  width: 40px;
-  height: 40px;
-  z-index: 9;
-  background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: 10px 7px;
-  opacity: 0.9;
-  transition: all 1s 0.2s ease;
-  bottom: 0;
-  right: 0;
-}
-
-.about_social {
-  opacity: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.about_social_icon {
-  width: 100%;
-  height: 100%;
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  display: flex;
-  transition: all 0.2s ease, background-color 0.4s ease;
-  opacity: 0;
-  border-radius: 100%;
-}
-
-.about_social_portfolio {
-  transition: all 0.8s ease;
-}
-
-.about_social_portfolio .about_social_icon {
-  background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
-}
-
-.about_social_dribbble {
-  transition: all 0.3s ease;
-}
-
-.about_social_dribbble .about_social_icon {
-  background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
-}
-
-.about_social_linkedin {
-  transition: all 0.8s ease;
-}
-
-.about_social_linkedin .about_social_icon {
-  background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
-}
-
-.about:hover {
-  width: 105px;
-  height: 105px;
-  transition: all 0.6s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
-
-.about:hover .about_logo {
-  opacity: 1;
-  transition: all 0.6s ease;
-}
-
-.about:hover .about_social {
-  opacity: 1;
-}
-
-.about:hover .about_social .about_social_icon {
-  opacity: 0.9;
-}
-
-.about:hover .about_social:hover {
-  background-size: 28px;
-}
-
-.about:hover .about_social:hover .about_social_icon {
-  background-size: 65%;
-  opacity: 1;
-}
-
-.about:hover .about_social_portfolio {
-  right: 0;
-  bottom: calc(100% - 40px);
-  transition: all 0.3s 0s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
-
-.about:hover .about_social_portfolio .about_social_icon:hover {
-  background-color: #698fb7;
-}
-
-.about:hover .about_social_dribbble {
-  bottom: 45%;
-  right: 45%;
-  transition: all 0.3s 0.15s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
-
-.about:hover .about_social_dribbble .about_social_icon:hover {
-  background-color: #ea4c89;
-}
-
-.about:hover .about_social_linkedin {
-  bottom: 0;
-  right: calc(100% - 40px);
-  transition: all 0.3s 0.25s cubic-bezier(0.64, 0.01, 0.07, 1.65);
-}
-
-.about:hover .about_social_linkedin .about_social_icon:hover {
-  background-color: #0077b5;
 }

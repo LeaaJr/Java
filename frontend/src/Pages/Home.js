@@ -29,7 +29,42 @@ export function Home() {
   }, []);
 
   const products = [
-    // ... Tus productos aquí
+      {
+        name: "Notebooks",
+        category: "computers",
+        year: "Now",
+        description: "A new, more powerful way to play, browse and study.",
+      },
+      {
+        name: "Smartphone",
+        category: "cellphones",
+        year: "Now",
+        description: "You can find the most advanced smartphone on the market here.",
+      },
+      {
+        name: "Smartwatch",
+        category: "smartwatch",
+        year: "Now",
+        description: "The most advanced smartwatch with health tracking features and long-lasting battery life."
+      },
+      {
+        name: "Headphones",
+        category: "headphones",
+        year: "Now",
+        description: "High-quality headphones with noise cancellation, immersive sound, and comfortable design."
+      },
+      {
+        name: "Tablet",
+        category: "tablet",
+        year: "Now",
+        description: "The latest tablet with a powerful processor, stunning display, and extended battery life."
+      },
+      {
+        name: "Bluetooth Headphones",
+        category: "accessories",
+        year: "Now",
+        description: "Noise canceling headphones with surround sound."
+      }
   ];
 
   // Función para manejar el cambio de categoría

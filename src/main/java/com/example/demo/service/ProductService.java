@@ -1,3 +1,5 @@
+//Service
+
 package com.example.demo.service;
 
 import com.example.demo.model.Product;
@@ -37,20 +39,22 @@ public class ProductService {
         return productRepository.findByIsFeatured(true); // Suponiendo que tienes un campo isFeatured
     }
 
-    // Actualizar un producto
-    public Product actualizarProducto(Long id, Product productoActualizado) {
-        Product producto = productRepository.findById(id).orElse(null);
-        if (producto != null) {
-            producto.setNombre(productoActualizado.getNombre());
-            producto.setPrecio(productoActualizado.getPrecio());
-            producto.setImageUrl(productoActualizado.getImageUrl());
-            producto.setDescripcion(productoActualizado.getDescripcion());
-            producto.setStock(productoActualizado.getStock());
-            producto.setCategoria(productoActualizado.getCategoria()); // ✅ Actualizamos la categoría
-            return productRepository.save(producto);
-        }
-        return null;
+// Actualizar un producto
+public Product actualizarProducto(Long id, Product productoActualizado) {
+    Product producto = productRepository.findById(id).orElse(null);
+    if (producto != null) {
+        producto.setNombre(productoActualizado.getNombre());
+        producto.setPrecio(productoActualizado.getPrecio());
+        producto.setImageUrl(productoActualizado.getImageUrl());
+        producto.setImageUrl2(productoActualizado.getImageUrl2()); // Actualizar imageUrl2
+        producto.setImageUrl3(productoActualizado.getImageUrl3()); // Actualizar imageUrl3
+        producto.setDescripcion(productoActualizado.getDescripcion());
+        producto.setStock(productoActualizado.getStock());
+        producto.setCategoria(productoActualizado.getCategoria());
+        return productRepository.save(producto);
     }
+    return null;
+}
 
     // Eliminar un producto
     public void eliminarProducto(Long id) {

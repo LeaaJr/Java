@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom"; // Si usas React Router, puedes obtener la categoría de la URL
+import { Link, } from "react-router-dom"; // Si usas React Router, puedes obtener la categoría de la URL
 import axios from "axios";
 
 const ProductMenu = ({ categoriaSeleccionada }) => {
@@ -32,6 +32,8 @@ const ProductMenu = ({ categoriaSeleccionada }) => {
 
   // Limitar a los primeros 4 productos
   const limitedProducts = products.slice(0, 4);
+
+  console.log(products);
 
   return (
     <div className="bg-black">

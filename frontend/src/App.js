@@ -7,6 +7,7 @@ import CartItem from "./Pages/CartItem";
 import { CartProvider } from "./Context/CartContext"; // Importa el CartProvider
 
 const App = () => {
+  
   return (
     <CartProvider>
       <Router>
