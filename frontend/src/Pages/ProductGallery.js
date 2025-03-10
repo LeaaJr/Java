@@ -81,7 +81,7 @@ export const ProductGallery = () => {
         </div>
 
         {/* PRECIO */}
-        <div className="text-4xl font-bold text-blue-600">${product.precio.toFixed(2)}</div>
+        <div className="text-4xl font-bold text-gray-300">€{product.precio.toFixed(2)}</div>
 
         {/* BOTONES */}
         <div className="flex gap-4">
