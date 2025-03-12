@@ -55,7 +55,7 @@ const ProductsPage = () => {
   return (
     <>
     <div>
-      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "15px", paddingTop: "5rem", paddingInlineEnd: "10rem" }}>
+      <div style={{ className:"imputSearch", display: "flex", justifyContent: "flex-end", marginBottom: "15px", paddingTop: "5rem", paddingInlineEnd: "10rem" }}>
         <input
           type="text"
           placeholder="Buscar producto..."
@@ -92,7 +92,7 @@ const ProductsPage = () => {
         <SectionCards products={filteredProducts} addToCart={addToCart} /> /* Pasamos addToCart */
       )}
     </div>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 };

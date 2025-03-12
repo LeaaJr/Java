@@ -4,10 +4,11 @@ import Home from "./Pages/Home";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductGallery from "./Pages/ProductGallery";
 import CartItem from "./Pages/CartItem";
-import { CartProvider } from "./Context/CartContext"; // Importa el CartProvider
+import { CartProvider } from "./Context/CartContext";
+import Checkout from "./Pages/Chekout";
+import CreditCardForm from "./Pages/CreditCardForm";
 
 const App = () => {
-  
   return (
     <CartProvider>
       <Router>
@@ -17,6 +18,8 @@ const App = () => {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/ProductGallery" element={<ProductGallery />} />
           <Route path="/CartItem" element={<CartItem />} />
+          <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/CreditCardForm" element={<CreditCardForm />} />
         </Routes>
       </Router>
     </CartProvider>

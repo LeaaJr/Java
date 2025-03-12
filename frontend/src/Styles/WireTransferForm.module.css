@@ -1,0 +1,92 @@
+.formContainer {
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .fullWidth {
+    grid-column: span 2;
+  }
+  .formGroup {
+    margin-bottom: 1rem;
+  }
+  .label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .input, .textarea, .select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(52, 58, 70, 0.8);
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+  }
+  .textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .amountContainer {
+    display: flex;
+  }
+  .amountInput {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .currencySelect {
+    width: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: rgba(52, 58, 70, 0.8);
+  }
+  .radioGroup {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .radioOption {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .button:hover {
+    background-color: #1d4ed8;
+  }
+  .footer {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-align: center;
+  }
+  .link {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .error {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }

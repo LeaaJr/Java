@@ -17,9 +17,14 @@ body {
   text-transform: uppercase; /* Opcional: para hacer el texto más prominente */
 }
 
+.text-center {
+  text-align: center;  /* Centra el contenido horizontalmente */
+}
+
 .texttittle {
   font-size: 4rem;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  /* No es necesario aplicar align-items aquí */
 }

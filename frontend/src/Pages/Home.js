@@ -60,10 +60,10 @@ export function Home() {
         description: "The latest tablet with a powerful processor, stunning display, and extended battery life."
       },
       {
-        name: "Bluetooth Headphones",
+        name: "Accessories",
         category: "accessories",
         year: "Now",
-        description: "Noise canceling headphones with surround sound."
+        description: "All the accessories you're looking for for your cell phone."
       }
   ];
 
