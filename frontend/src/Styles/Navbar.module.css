@@ -1,4 +1,4 @@
-/* Navbar.module.css */
+/* Navbar container */
 .menu {
    width: 100%;
    display: flex;
@@ -12,17 +12,33 @@
    padding-top: 2rem;
 }
 
-
-.menuItem {
-   color: white;
-   font-weight: 600;
-   flex: 1;
+/* Cart button */
+.cart-button {
+   position: relative; /* Make sure the button itself is relative to place the badge correctly */
    display: flex;
    justify-content: center;
-   padding: 1em 1em;
-   text-align: center;
+   align-items: center;
+   padding: 5px; /* Added padding to make the button more prominent */
+   font-size: 20px; /* Ensure the icon is big enough */
 }
 
+/* Cart badge */
+.cartBadge {
+   position: absolute;
+   top: -3px;  /* Adjust for a better alignment */
+   right: 9rem; /* Adjust for a better alignment */
+   background-color: red;
+   color: white;
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 12px;
+}
+
+/* Optional: Ensure menu links are styled correctly */
 .menuText a {
    color: white;
    text-decoration: none;
@@ -33,94 +49,41 @@
    color: rgba(255, 255, 255, 0.5);
 }
 
-/* Submenú */
+/* Menu item */
+.menuItem {
+   color: white;
+   font-weight: 600;
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 1em 1em;
+   text-align: center;
+   position: relative; /* Important for the submenu to align correctly */
+}
+
+/* Submenu styling */
 .subMenu {
-   position: absolute;  
-   top: 6em; /* Mantener la separación entre el menú y el submenú */
+   position: absolute;
+   top: 100%; /* Adjust so that it appears right below the menu item */
+   left: 0; /* Make sure it's aligned to the left of the parent */
    background: rgb(0, 0, 0);
    border-radius: 10px;
    padding: 1.5em;
    opacity: 0;
    transition: opacity 0.25s ease-out;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   width: 200px; /* Ancho del submenú */
-   z-index: 20; /* Asegura que el submenú esté encima */
+   width: 200px;
+   z-index: 20;
 }
 
-.menuItem:hover .subMenu {
+/* Make submenu visible when hovering over the Products link */
+.menuItem.products:hover .subMenu {
    opacity: 1;
 }
 
-/* Separar los elementos <p> dentro del submenú */
-.subMenu p {
-   margin-bottom: 1em; /* Añadir espacio entre los <p> */
-   color: white; /* Si necesitas que el texto sea blanco */
+/* Additional hover effects to ensure subMenu doesn't pop up unexpectedly */
+.menuItem:hover .subMenu {
+   opacity: 0; /* Prevent submenu from showing when hovering outside */
 }
 
-/* Puedes agregar más personalización si es necesario, por ejemplo: */
-.subMenu p:hover {
-   color: rgba(255, 255, 255, 0.7); /* Un cambio de color en hover */
-}
-
-
-/* Espaciado superior para que el contenido no quede tapado */
-body {
-   margin-top: 3.5rem; /* Esto da espacio para que el contenido no quede detrás del Navbar */
-}
-
-
-/* Estilos para los íconos */
-.iconBoxGb .icon i:before {
-   background: linear-gradient(45deg, #0c86ef, #0cef9b);
-   -webkit-text-fill-color: transparent;
-   -webkit-background-clip: text;
-   padding-left: 1px;
-}
-
-.iconBoxGbA .icon i:before {
-   background-image: linear-gradient(45deg, #2ca7ff 35%, #31d078 75%);
-}
-
-.iconBoxGbB .icon i:before {
-   background-image: linear-gradient(45deg, #f32b2b 35%, #efbe0c 75%);
-}
-
-.iconBoxGbC .icon i:before {
-   background-image: linear-gradient(45deg, #7176ff 35%, #b26cea 75%);
-}
-
-.iconBoxGbD .icon i:before {
-   background-image: linear-gradient(45deg, #79c76f 35%, #bed09b 75%);
-}
-
-.iconBoxGbE .icon i:before {
-   background-image: linear-gradient(45deg, #6082ff 35%, #ff5dbe 75%);
-}
-
-.iconBoxGbF .icon i:before {
-   background-image: linear-gradient(45deg, #808080 35%, #bbbbbb 75%);
-}
-
-.menuItem .iconBox:hover .text i {
-   clip-path: inset(0 0 0 0);
-   transition: clip-path 0.1s ease-out;
-}
-
-.menuItem .iconBox:hover .icon, .menuItem .iconBox:hover .title, .menuItem .iconBox:hover .subText {
-   color: rgb(89 110 123);
-}
-
-#subMenuBottom {
-   background: #d4e3ea70;
-   position: absolute;
-   bottom: 0;
-   opacity: 0;
-   transition: all 0.25s ease-out, height 0.1s ease-out;
-   left: 0;
-   width: 100%;
-   height: 5em;
-}
-
-.menuItem.highlight:hover ~ #subMenuContainer #subMenuHolder #subMenuBottom {
-   height: 7.5em;
-}

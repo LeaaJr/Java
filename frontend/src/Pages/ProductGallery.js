@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useCart } from "../Context/CartContext"; // Importar el hook del carrito
+import { useCart } from "../Context/CartContext"; // UseCart hook
 
 export const ProductGallery = () => {
   const location = useLocation();
-  const { addToCart } = useCart(); // Obtiene la función para agregar productos al carrito
-  const product = location.state?.product; // Verifica que se pase correctamente
+  const { addToCart } = useCart(); // Get the addToCart function from context
+  const product = location.state?.product;
 
-  // Verifica si 'product' tiene datos
-  console.log("Producto desde useLocation:", product);
-
-  // Definir las imágenes del producto (sin imágenes nulas)
   const images = [product?.imageUrl, product?.imageUrl2, product?.imageUrl3].filter(Boolean);
 
   const [selectedImage, setSelectedImage] = useState("");
 
   useEffect(() => {
     if (product) {
-      console.log("Producto recibido en useEffect:", product); // Verifica las imágenes
-
       const images = [product.imageUrl, product.imageUrl2, product.imageUrl3].filter(Boolean);
-      console.log("Imágenes a mostrar:", images);
-
       if (images.length > 0) {
         setSelectedImage(images[0]);
       }
@@ -34,7 +26,7 @@ export const ProductGallery = () => {
 
   return (
     <div className="flex flex-row gap-8 p-6 max-w-5xl mx-auto py-32">
-      {/* IMAGEN PRINCIPAL */}
+      {/* IMAGE SECTION */}
       <div className="w-1/2 flex flex-col items-center">
         <div className="w-full aspect-square bg-white rounded-xl overflow-hidden shadow-md">
           {selectedImage ? (
@@ -48,7 +40,7 @@ export const ProductGallery = () => {
           )}
         </div>
 
-        {/* MINIATURAS */}
+        {/* THUMBNAILS */}
         <div className="flex gap-2 overflow-x-auto pb-2 mt-3">
           {images.map((image, index) => (
             <button
@@ -63,7 +55,7 @@ export const ProductGallery = () => {
         </div>
       </div>
 
-      {/* DETALLES DEL PRODUCTO */}
+      {/* PRODUCT DETAILS */}
       <div className="w-1/2 flex flex-col gap-6">
         <div className="inline-block px-3 py-1 bg-green-600 text-white text-sm rounded-full self-start">
           In stock
@@ -71,7 +63,7 @@ export const ProductGallery = () => {
         <h1 className="text-3xl font-semibold">{product.nombre}</h1>
         <p className="text-gray-600">{product.descripcion}</p>
 
-        {/* ESTRELLAS Y REVIEWS */}
+        {/* STARS AND REVIEWS */}
         <div className="flex items-center gap-2">
           {"★★★★★".split("").map((star, i) => (
             <span key={i} className="text-yellow-400">{star}</span>
@@ -80,19 +72,21 @@ export const ProductGallery = () => {
           <a href="#reviews" className="text-blue-500 hover:underline ml-2">345 Reviews</a>
         </div>
 
-        {/* PRECIO */}
+        {/* PRICE */}
         <div className="text-4xl font-bold text-gray-300">€{product.precio.toFixed(2)}</div>
 
-        {/* BOTONES */}
+        {/* BUTTONS */}
         <div className="flex gap-4">
           <button
             className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
-            onClick={() => addToCart({
-              id: product.id,
-              nombre: product.nombre,
-              precio: product.precio,
-              imagen: selectedImage
-            })}
+            onClick={() => 
+              addToCart({
+                id: product.id,
+                nombre: product.nombre,
+                precio: product.precio,
+                imagen: selectedImage
+              })
+            }
           >
             Add to cart
           </button>
