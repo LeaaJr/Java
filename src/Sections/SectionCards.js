@@ -1,29 +1,36 @@
-// SectionCards.js
-import styles from '../Styles/SectionCard.module.css'
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-
-const SectionCards = ({ product }) => {
-  // Verificación para evitar el error de undefined
-  if (!product || !product.name) {
-    return <div>No product available</div>;
-  }
-
+const SectionCards = ({ products }) => {
   return (
-    <div className={`${styles.card} ${styles[`card-${product.category.replace(/\s+/g, '')}`]}`}>
-      <div className={styles.overlay}></div>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{product.name}</h2>
-          <p className={styles.info}>{product.year || 'Year not specified'}</p>
-        </div>
-        <p className={styles.desc}>{product.description || 'No description available'}</p>
-        <div className={styles.buyButton}>
-          <button className={styles.btn}>Buy</button>
-        </div>
-      </div>
-    </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8 mx-4">
+    {products.map((product) => {
+      const imageUrl = product.imageUrl || product.imageUrl2 || product.imageUrl3;
+      const precio = product.precio;
+      const precioFormateado = (typeof precio === 'number' && !isNaN(precio)) ? precio.toFixed(2) : 'Precio no disponible';
+
+      return (
+        <Link
+          key={product.id}
+          to="/ProductGallery"
+          state={{ product: { ...product, imagenes: [product.imageUrl] } }}
+          className="group"
+        >
+          <img
+            alt={product.nombre}
+            src={imageUrl || '/default-image.jpg'}
+            className="aspect-square w-full rounded-lg bg-white object-contain group-hover:opacity-75 xl:aspect-7/8"
+          />
+          <h3 className="mt-4 text-sm text-white">{product.nombre}</h3>
+          <p className="mt-1 text-lg font-medium text-white">
+          €{precioFormateado}
+          </p>
+        </Link>
+      );
+    })}
+  </div>
   );
 };
+
 
 export default SectionCards;

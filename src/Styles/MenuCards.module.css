@@ -22,15 +22,27 @@
     background-image: url('https://www.anovocare.es/wp-content/uploads/2024/10/iPhone-16-Pro-Max-lanzamiento-1080x675.jpg'); /* Sustituye con tu imagen de celulares */
   }
   
-  .card-accessories {
+  .card-smartwatch {
+    background-image: url('https://media.betterroaming.com/f/252707/2023x1349/826f06ff00/blog_header_cellular_smartwatch.webp'); /* Sustituye con tu imagen de accesorios */
+  }
+
+  .card-headphones {
     background-image: url('https://i.insider.com/670d58e33f2165d716e0a5bf?width=800&format=jpeg&auto=webp'); /* Sustituye con tu imagen de accesorios */
+  }
+
+  .card-tablet {
+    background-image: url('https://noticias.bidcom.com.ar/wp-content/uploads/2022/03/pexels-roberto-nickson-3082341-2048x1365.jpg'); /* Sustituye con tu imagen de accesorios */
+  }
+
+  .card-accessories {
+    background-image: url('https://oechsle.vteximg.com.br/arquivos/ids/17761926-998-998/imageUrl_1.jpg?v=638507699708700000'); /* Sustituye con tu imagen de accesorios */
   }
   
   .overlay {
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    background: linear-gradient(to right, rgba(42, 159, 255, .2) 0%, rgba(33, 33, 32, 1) 60%, rgba(33, 33, 32, 1) 100%);
+    background: linear-gradient(to right, rgba(152, 152, 152, 0.123) 0%, rgb(16, 16, 16) 60%, rgb(0, 0, 0) 100%);
     background-blend-mode: multiply;
     position: absolute;
     top: 0;
