@@ -1,3 +1,5 @@
+// CIRCULOS
+
 import React from 'react';
 import styles from '../Styles/DeviceDisplay.module.css';  // Importamos el archivo CSS modular
 import { FaShippingFast,} from "react-icons/fa";
