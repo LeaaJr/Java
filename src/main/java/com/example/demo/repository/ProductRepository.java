@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findByCategoria(String categoria);
-
+    List<Product> findByCategoria(String categoria); // Método existente
+    List<Product> findByIsFeatured(boolean isFeatured); // Nuevo método
 }
