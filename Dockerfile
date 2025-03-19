@@ -7,6 +7,9 @@ COPY . /app
 # Establece el directorio de trabajo
 WORKDIR /app
 
+# Da permisos de ejecución al archivo mvnw
+RUN chmod +x mvnw
+
 # Compila la aplicación
 RUN ./mvnw clean package
 
