@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mi-backend-java
+    runtime: java
+    buildCommand: mvn clean package
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JDK_VERSION
+        value: 21
