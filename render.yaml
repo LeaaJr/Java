@@ -7,3 +7,5 @@ services:
     envVars:
       - key: JDK_VERSION
         value: 21
+    ignorePaths:
+      - /frontend
