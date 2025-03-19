@@ -9,3 +9,4 @@ services:
         value: 21
     ignorePaths:
       - /frontend
+    autoDeploy: false  # Desactiva la detección automática de frameworks
