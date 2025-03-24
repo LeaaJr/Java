@@ -3,46 +3,46 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "products") // Nombre de la tabla en PostgreSQL
+@Table(name = "products")
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, length = 100)
+    
+    @Column(nullable = false)
     private String nombre;
-
+    
     @Column(nullable = false)
-    private double precio;
-
-    @Column(name = "imageurl")  // Asegura que coincide con la BD
+    private Double precio;  // Cambiado a Double (objeto)
+    
+    @Column(name = "image_url")
     private String imageUrl;
-
-    @Column(name = "imageurl2")  // Nueva columna para la segunda imagen
+    
+    @Column(name = "image_url2")
     private String imageUrl2;
-
-    @Column(name = "imageurl3")  // Nueva columna para la tercera imagen
+    
+    @Column(name = "image_url3")
     private String imageUrl3;
-
-    @Column(columnDefinition = "TEXT") // Para descripciones largas
+    
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
-
+    
     @Column(nullable = false)
-    private int stock;
-
-    @Column(nullable = false, length = 50) // Nueva columna para la categoría
+    private Integer stock;  // Cambiado a Integer (objeto)
+    
+    @Column(nullable = false)
     private String categoria;
+    
+    @Column(name = "is_featured", nullable = false)
+    private Boolean isFeatured = false;
 
-    @Column(nullable = false)
-    private boolean isFeatured;  // Nuevo campo para productos destacados
-
-    // Constructor vacío (obligatorio para JPA)
     public Product() {
     }
 
-    // Constructor con parámetros
-    public Product(String nombre, double precio, String imageUrl, String imageUrl2, String imageUrl3, String descripcion, int stock, String categoria) {
+    // Constructor actualizado para usar objetos
+    public Product(String nombre, Double precio, String imageUrl, String imageUrl2, 
+                 String imageUrl3, String descripcion, Integer stock, 
+                 String categoria, Boolean isFeatured) {
         this.nombre = nombre;
         this.precio = precio;
         this.imageUrl = imageUrl;
@@ -51,9 +51,10 @@ public class Product {
         this.descripcion = descripcion;
         this.stock = stock;
         this.categoria = categoria;
+        this.isFeatured = isFeatured;
     }
 
-    // Getters y Setters
+    // Getters y Setters actualizados
     public Long getId() {
         return id;
     }
@@ -70,11 +71,11 @@ public class Product {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
@@ -110,11 +111,11 @@ public class Product {
         this.descripcion = descripcion;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
@@ -126,26 +127,11 @@ public class Product {
         this.categoria = categoria;
     }
 
-    public boolean isFeatured() {
+    public Boolean getIsFeatured() {
         return isFeatured;
     }
 
-    public void setFeatured(boolean featured) {
-        isFeatured = featured;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", imageUrl2='" + imageUrl2 + '\'' +
-                ", imageUrl3='" + imageUrl3 + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", stock=" + stock +
-                ", categoria='" + categoria + '\'' +
-                '}';
+    public void setIsFeatured(Boolean isFeatured) {
+        this.isFeatured = isFeatured;
     }
 }
