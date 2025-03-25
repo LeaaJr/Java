@@ -97,4 +97,69 @@
       transform: none;
     }
     
+    
   }
+
+  /* Animaciones */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateY(-50%) translateX(100px); /* Combinamos transforms */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0); /* Mantenemos el centrado vertical */
+    opacity: 1;
+  }
+}
+
+/* Aplicar animaciones solo al cargar */
+.textContent {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.imageContainer {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Esta es la línea importante que debe mantenerse */
+  width: 50%;
+  max-width: 600px;
+  /* Agregamos esto para la animación sin afectar el layout */
+  animation: slideInFromRight 0.8s ease-out forwards;
+  opacity: 0; /* Inicialmente oculta */
+}
+
+/* Opcional: Retraso escalonado para los elementos */
+.description {
+  animation-delay: 0.2s;
+}
+
+.cta {
+  animation-delay: 0.4s;
+}
+
+/* Asegurar que los elementos estén ocultos inicialmente antes de la animación */
+.textContent,
+.imageContainer {
+  opacity: 0; /* Se sobreescribirá con la animación */
+}
+
+/* Mantener tus media queries existentes */
+@media (max-width: 768px) {
+  .textContent,
+  .imageContainer {
+    animation: none; /* Desactivar animaciones en móvil si prefieres */
+    opacity: 1;
+  }
+}

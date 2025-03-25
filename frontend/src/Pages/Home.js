@@ -95,7 +95,7 @@ export function Home() {
       <Carrousell />
       
       {/* Renderizamos los dispositivos */}
-      <DeviceDisplay />
+      {/* <DeviceDisplay /> */}
 
 
       <div className="menu-container">

@@ -13,7 +13,7 @@ export function Carrousell () {
             </div>
 
             <div className={style.carouselItem}>
-                <img src="https://www.muycomputer.com/wp-content/uploads/2020/07/PS5-Negra-Black-Edition-e1593692011592.jpg" alt="Imagen 2" className={style.pic} />
+                <img src="https://4kwallpapers.com/images/walls/thumbs_3t/19106.png" alt="Imagen 2" className={style.pic} />
                 <div className={style.textContainer}>
                     <h2>PlayStation 5 Pro</h2>
                     <p>With the PlayStation®5 Pro console, the greatest creators of games in the world can improve their titles with incredible functionality such as advanced ray-tracing, extremely sharp images for your 4K TV and a game with a high frame rate*. This means giving you the PS5® title with the most amazing graphics ever on your PlayStation® console.</p>
@@ -29,7 +29,7 @@ export function Carrousell () {
             </div>
 
             <div className={style.carouselItem}>
-                <img src="https://media.wired.com/photos/620ec99bc14aa6d334a5d91c/master/pass/Gear-Apple-Watch-Fitness-Tracker.jpg" alt="Imagen 4" className={style.pic} />
+                <img src="https://www.apple.com/newsroom/images/2024/09/apple-watch-ultra-2-now-available-in-black-titanium/article/Apple-Watch-Ultra-2-Trail-Loop-240909_inline.jpg.large_2x.jpg" alt="Imagen 4" className={style.pic} />
                 <div className={style.textContainer}>
                     <h2>Apple Watch Ultra 2</h2>
                     <p>Apple Watch Ultra 2 is the ideal watch for sports and adventure, and now it's also available with a stunning new black titanium case.</p>
